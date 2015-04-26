@@ -18,8 +18,7 @@ clean:
 	find . -name \*__pycache__ -delete
 
 coverage:
-	coverage run python manage.py test
-	coverage report -m --fail-under=100
+	py.test --cov=.
 
 check:
 	flake8 .
