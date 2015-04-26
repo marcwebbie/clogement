@@ -1,3 +1,5 @@
+.PHONY: help clean coverage check test serve
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  dev		=> to install all needed dev tools"
@@ -12,11 +14,8 @@ dev:
 	pip install coverage ipython pudb flake8
 
 clean:
-	find  -name \*.pyc -delete
-	find  -name \*__pycache__ -delete
-
-rm-migrations:
-	find -name \*migrations*0*.py
+	find . -name \*.pyc -delete
+	find . -name \*__pycache__ -delete
 
 coverage:
 	coverage run python manage.py test
@@ -29,11 +28,13 @@ serve:
 	python manage.py runserver
 
 test:
-	python manage.py test
-
-superuser:
-	python manage.py createsuperuser
+	py.test
 
 migrate:
 	- python manage.py makemigrations
 	- python manage.py migrate || true
+
+remove-db:
+	- rm -rf db.sqlite3
+
+db: remove-db migrate
