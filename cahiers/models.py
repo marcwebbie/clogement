@@ -1,5 +1,3 @@
-from uuid import uuid4
-
 from django.db import models
 
 from accounts.models import Profile
@@ -81,7 +79,8 @@ class Logement(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return "{}, {}m2, Price: {}".format(self.city, self.surface, self.price)
+        return "{}, {}m2, Price: {}".format(
+            self.city, self.surface, self.price)
 
 
 class LogementPhoto(models.Model):
