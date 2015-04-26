@@ -10,6 +10,12 @@ class Cahier(models.Model):
     description = models.CharField(max_length=255)
     budget = models.FloatField(max_length=255)
 
+    class Meta:
+        permissions = (
+            ('view_cahier', 'View Cahier'),
+            ('edit_cahier', 'Edit Cahier'),
+        )
+
     def __str__(self):
         return self.description
 
