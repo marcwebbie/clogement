@@ -13,7 +13,6 @@ class Cahier(models.Model):
     class Meta:
         permissions = (
             ('view_cahier', 'View Cahier'),
-            ('edit_cahier', 'Edit Cahier'),
         )
 
     def __str__(self):
