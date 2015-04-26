@@ -4,7 +4,6 @@ from model_mommy import mommy
 
 from accounts.models import Profile
 from cahiers.models import Cahier, Logement
-from cahiers.serializers import CahierSerializer
 from django.contrib.auth.models import User
 
 
