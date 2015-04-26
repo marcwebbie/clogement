@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'drf_generators',
     'rest_framework_swagger',
+    'guardian',
 
     'cahiers',
     'accounts',
@@ -58,6 +59,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # this is default
+    'guardian.backends.ObjectPermissionBackend',
 )
 
 ROOT_URLCONF = 'clogement.urls'
@@ -110,3 +116,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Guardian
+ANONYMOUS_USER_ID = -1
