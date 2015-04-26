@@ -19,6 +19,4 @@ def test_cahiers_sets_permisions():
     mommy.make(Logement, cahier=cahier_jackie)
 
     assign_perm('view_cahier', john, cahier_jackie)
-    assign_perm('edit_cahier', john, cahier_jackie)
     assert john.has_perm('view_cahier', cahier_jackie) is True
-    assert john.has_perm('edit_cahier', cahier_jackie) is True
